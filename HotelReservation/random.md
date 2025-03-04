@@ -1,1 +1,0 @@
-Random rani pero pwede ra idelete
