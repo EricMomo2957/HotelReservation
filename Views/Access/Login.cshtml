@@ -1,0 +1,156 @@
+﻿@model HotelManagement.Models.VMLogin
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #ffdb58; /* Gold color for the button */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #login-box {
+            width: 350px; /* Adjust width as needed */
+            background-color: #f8f8f8; /* Light background for the box */
+            border: 1px solid #ddd; /* Light border */
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+
+            #login-box h3 {
+                text-align: center;
+                margin-bottom: 20px;
+                color: #333;
+            }
+
+        .form-group label {
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        .form-control {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 10px;
+            font-size: 1rem;
+        }
+
+        .btn-info {
+            background-color: #d4af37; /* Gold color for the button */
+            border-color: #d4af37;
+            color: white;
+            width: 100%;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+            .btn-info:hover {
+                background-color: #c29e2f; /* Darker gold on hover */
+                border-color: #c29e2f;
+            }
+
+        .social-login {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #777;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+            .social-icons a {
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background-color: #eee;
+                margin: 0 5px;
+                text-decoration: none;
+                color: #333;
+            }
+
+                .social-icons a:hover {
+                    background-color: #ddd;
+                }
+
+        .signup-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+            .signup-link a {
+                color: #007bff;
+                text-decoration: none;
+            }
+
+                .signup-link a:hover {
+                    text-decoration: underline;
+                }
+
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div id="login-box">
+        <span class="close-button">&times;</span>
+        <h3 class="text-center">Login</h3>
+        @using (Html.BeginForm("Login", "Access", FormMethod.Post))
+        {
+            <div class="form-group">
+                <label for="username">Email:</label><br>
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email" })
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label><br>
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
+            </div>
+            <div class="form-group">
+                <input type="submit" name="submit" class="btn btn-info btn-md" value="Login" />
+            </div>
+            @if (ViewData["ValidateMessage"] != null)
+            {
+                <label style="color: red;">@ViewData["ValidateMessage"]</label>
+            }
+        }
+        <div class="social-login">
+            or use a social network
+        </div>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-google-plus-g"></i></a>
+            <a href="#"><i class="fas fa-phone"></i></a>
+        </div>
+        <div class="signup-link">
+            Not a member yet? <a href="#">Sign Up</a>
+        </div>
+    </div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</body>
+</html>

@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>@ViewData["Title"]</title>
+</head>
+<body>
+
+    <h2>Welcome to Hyatt Hotel</h2>
+    <h3>Dear Guest, Please book now. Before booking please see the rooms below</h3>
+
+    <div class="myDiv">
+        <img src="/images/pic_4.png" alt="Jane">
+    </div>
+
+    <div class="card">
+        <img src="/images/hotel.jpg" alt="Jane">
+        <div class="container">
+            <h2>Deluxe Room</h2>
+            <a asp-controller="Bookings" asp-action"Create">
+                <input type="button" class="btn btn-primary" value="Book Now" />
+            </a>
+        </div>
+    </div>
+
+
+</body>
+</html>
